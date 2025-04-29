@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box !important;
 }
 :root {
-  font-family: Manrope, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Manrope", system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   color-scheme: light dark;
   font-synthesis: none;
@@ -52,13 +54,14 @@ ul{
   left: 0;
   right: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   background-color: var(--surface);
   height: 70px;
   align-items: center;
   padding: 0 48px;
   z-index: 1000;
+  overflow: hidden;
+  gap: 48px;
   transition: all 0.8s cubic-bezier(0.75, 0.01, 0.25, 1);
   &.U_Active{
     top: 0;
@@ -105,6 +108,9 @@ ul{
   width: calc(50% - 24px);
   height: fit-content;
   padding: 24px 0 24px 0; 
+}
+.W_BurgerMenu{
+  display: none;
 }
 .W_PopUpHeader{
   display: flex;
@@ -260,6 +266,17 @@ ul{
     }
   }
 }
+.W_NavbarMobile{
+  display: none;
+}
+.W_NavbarContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+}
 .O_About{
   display: flex;
   flex-direction: row;
@@ -380,9 +397,9 @@ ul{
   }
 }
 .A_HeroLogo{
-  /* position: absolute;
-  bottom: 0;
-  left: 0; */
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
   width: calc(100% - 96px);
   height: auto;
   object-fit: contain;
@@ -500,7 +517,9 @@ ul{
 .Q_Logo{
   height: 40px;
 }
-
+.U_Hide{
+  display: none !important;
+}
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 8px; /* Make scrollbar thinner */
@@ -534,6 +553,7 @@ ul{
     padding: 0 12px;
     &.U_About{
       padding: 24px 12px 48px 12px;
+      min-height: 100%;
     }
   }
   .W_BurgerMenu{
@@ -560,13 +580,15 @@ ul{
   }
   p{
     line-height: 120%;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
   }
   .A_SectionTitle{
     font-size: 24px;
+    font-weight: 700;
   }
   .A_Company{
-    font-size: 24px;
+    font-size: 28px;
   }
   .O_About{
     margin-top: 0;
@@ -577,10 +599,45 @@ ul{
       }  
     }
   }
+  .W_NavbarMobile{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    height: fit-content;
+    .A_NavbarLink{
+      width: 100%;
+      height: 50px;
+      font-size: 28px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      background-color: var(--surface);
+      color: var(--text-default-color);
+      padding: 0;
+      border-bottom: 1px solid var(--surface-secondary);
+    }
+    .A_NavbarButton{
+      width: 100%;
+      height: 50px;
+      font-size: 28px;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      line-height: 1.6;
+      background-color: var(--surface-inverted);
+      color: var(--text-inverted-color);
+      border-radius: 12px;
+      padding: 0 12px;
+    }
+  }
   .O_Services{
     padding: 48px 12px 48px 12px;
     .W_ServicesContent{
       margin: 0;
+      .W_Halfs{
+        gap: 24px;
+      }
     }
     .W_Half{
       padding: 0;
@@ -589,9 +646,16 @@ ul{
   .W_NavbarLinks{
     display: none;
   }
+  .W_NavbarContent{
+    height: 40px;
+  }
   .O_Navbar {
     padding: 12px 12px;
     &.U_Open{
+      height: 100%;
+      .W_NavbarContent{
+        height: 40px;
+      }
       .W_BurgerMenuLine{
         &:nth-child(1){
           transform: translate(0, 7px) rotate(45deg);
@@ -608,6 +672,9 @@ ul{
   .A_AboutTitle{
     font-size: 64px;
     line-height: 80%;
+  }
+  .A_AboutTitle{
+    font-size: 14vw;
   }
   .O_PopUp {
     max-width: 100vw;
@@ -628,6 +695,7 @@ ul{
     padding: 48px 0 48px 0;
     margin: 48px 12px 48px 12px;
     border-bottom: 1px solid var(--surface-secondary);
+    gap: 24px;
     .W_Half{
       padding: 0;
     }
@@ -659,4 +727,38 @@ ul{
       display: block;
     }
   }
+}
+@media (max-width: 768px) {
+  .A_HeroLogoMiddle{
+    height: 70vh;
+    width: 100%;
+    object-fit: fill;
+  }  
+  .A_HeroLogo{
+    img{
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+  ul{
+    padding-left: 20px;
+  }
+  .A_Company{
+    font-size: 24px;
+  }
+  @supports (-webkit-touch-callout: none) {
+    .O_HeroSection{
+      height: 100%;
+      min-height: 100dvh;
+      max-height: -webkit-fill-available;
+    }
+    body {
+      min-height: 100dvh;
+    }
+  .A_HeroLogoMiddle{
+    height: 60dvh;
+    object-fit: fill;
+  }
+}
 }

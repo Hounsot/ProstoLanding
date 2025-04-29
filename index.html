@@ -31,28 +31,42 @@
       </div>
     </div>
     <div class="O_Navbar">
-      <img class="Q_Logo" src="public/ProstoLogo.svg" alt="">
-      <div class="W_NavbarLinks">
+      <div class="W_NavbarContent">
+        <a style="display: flex; align-items: center; height: 100%;" href="#Hero">
+          <img class="Q_Logo" src="public/ProstoLogo.svg" alt="">
+        </a>
+        <div class="W_NavbarLinks">
+          <a class="A_NavbarLink" href="#About">О&nbsp;нас</a>
+          <a class="A_NavbarLink" href="#Services">Услуги</a>
+          <div class="Q_Divider"></div>
+          <div class="A_NavbarButton">Хочу проект</div>
+        </div>
+        <div class="W_BurgerMenu">
+          <div class="W_BurgerMenuLine"></div>
+          <div class="W_BurgerMenuLine"></div>
+          <div class="W_BurgerMenuLine"></div>
+        </div>  
+      </div>
+      <div class="W_NavbarMobile">
         <a class="A_NavbarLink" href="#About">О&nbsp;нас</a>
         <a class="A_NavbarLink" href="#Services">Услуги</a>
-        <div class="Q_Divider"></div>
         <div class="A_NavbarButton">Хочу проект</div>
       </div>
-      <div class="W_BurgerMenu">
-        <div class="W_BurgerMenuLine"></div>
-        <div class="W_BurgerMenuLine"></div>
-        <div class="W_BurgerMenuLine"></div>
-      </div>
     </div>
-    <div class="O_HeroSection">
+    <div class="O_HeroSection" id="Hero">
       <div class="A_RedBackground"></div>
       <p class="A_HeroLoaderProcess">0%</p>
       <div class="A_Loader">
         <div class="A_LoaderLine"></div>
       </div>
-      <img class="A_HeroLogo" src="public/Q_HeroLogo.svg" alt="">
+      <div class="A_HeroLogo">
+        <img src="public/Q_HeroLogoTop.png" alt="">
+        <img class="A_HeroLogoMiddle" src="public/Q_HeroLogoMiddle.png" alt="">
+        <img src="public/Q_HeroLogoBottom.png" alt="">
+      </div>
+      <!-- <img class="A_HeroLogo" src="public/Q_HeroLogo.svg" alt=""> -->
     </div>
-    <section class="O_Clients" id="#Clients">
+    <section class="O_Clients U_Hide" id="#Clients">
       <div class="W_Half">
         <p class="A_SectionTitle">Клиенты</p>
       </div>
@@ -74,7 +88,7 @@
         </div>
       </div>
     </section>
-    <section class="O_Services">
+    <section class="O_Services U_Hide" id="Services">
       <div class="W_ServicesContent">
         <div class="W_Halfs">
           <div class="W_Half">
@@ -149,7 +163,7 @@
         </div>
       </div>
     </section>
-    <section class="O_About">
+    <section class="O_About U_Hide" id="About">
       <div class="W_Half">
         <img class="A_AboutImage" src="public/Q_About.png" alt="">
       </div>
@@ -185,7 +199,7 @@
         <p class="A_AboutTitle">Идеи,<br>которые<br>живут</p>
       </div>
     </section>
-    <footer class="O_Footer">
+    <footer class="O_Footer U_Hide">
       <div class="W_FooterContent">
         <div class="W_Half U_Footer">
           <p class="A_SectionTitle">Связь</p>
